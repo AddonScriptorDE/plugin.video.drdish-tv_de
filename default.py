@@ -17,7 +17,6 @@ def index():
         addDir(translation(30007),"http://www.drdish-tv.com/neueste-videos/",'listVideos',"")
         addDir(translation(30008),"http://www.drdish-tv.com/tv-programm/",'listVideosTV',"")
         xbmcplugin.endOfDirectory(pluginhandle)
-        if (xbmc.getSkinDir() == "skin.confluence" or xbmc.getSkinDir() == "skin.touched"): xbmc.executebuiltin('Container.SetViewMode(50)')
 
 def listCategories(url):
         if url=="sendungen":
@@ -37,7 +36,6 @@ def listCategories(url):
         elif url=="gastformate":
           listGastformate()
         xbmcplugin.endOfDirectory(pluginhandle)
-        if (xbmc.getSkinDir() == "skin.confluence" or xbmc.getSkinDir() == "skin.touched"): xbmc.executebuiltin('Container.SetViewMode(50)')
 
 def listMultimedia():
           addDir("Pixel - Digital Lifestyle","http://www.drdish-tv.com/sendungen/multimedia/pixel/",'listVideos',"")
@@ -84,7 +82,6 @@ def listVideos(url):
           url="http://www.drdish-tv.com/"+match[0][0]
           addDir("Next Page",url,'listVideos','')
         xbmcplugin.endOfDirectory(pluginhandle)
-        if (xbmc.getSkinDir() == "skin.confluence" or xbmc.getSkinDir() == "skin.touched"): xbmc.executebuiltin('Container.SetViewMode(500)')
 
 def listVideosTV(url):
         content = getUrl(url)
@@ -99,7 +96,6 @@ def listVideosTV(url):
             title=urllib.unquote_plus(match[0])
             addLink(title,url,'playVideo',thumb)
         xbmcplugin.endOfDirectory(pluginhandle)
-        if (xbmc.getSkinDir() == "skin.confluence" or xbmc.getSkinDir() == "skin.touched"): xbmc.executebuiltin('Container.SetViewMode(500)')
 
 def playVideo(url):
         content = getUrl("http://medianac.nacamar.de/p/435/sp/43500/playManifest/entryId/"+url+"/")
