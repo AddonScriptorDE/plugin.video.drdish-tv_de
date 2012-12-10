@@ -70,7 +70,7 @@ def listVideos(url):
         spl=content.split('<div class="videocontent">')
         for i in range(1,len(spl),1):
             entry=spl[i]
-            match=re.compile('<a href="videoplayer/video/(.+?)/">', re.DOTALL).findall(entry)
+            match=re.compile('tx_kaltura_pi1%5Bclipid%5D=(.+?)&amp;', re.DOTALL).findall(entry)
             url=match[0]
             match=re.compile('src="(.+?)"', re.DOTALL).findall(entry)
             thumb=match[0]
